@@ -11,7 +11,7 @@ export default function Navbar() {
     <div className="container">
       <nav>
         <Image src="/rupee.png" width={50} height={48} />
-        <h1>Gaming Vibes</h1>
+        <h1>My App</h1>
         {authReady && (
           <ul>
             <li>
@@ -20,8 +20,18 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/guides">
-                <a>Guides</a>
+              <Link href="/users">
+                <a>Users</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/countries">
+                <a>Countries</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/lists">
+                <a>Lists</a>
               </Link>
             </li>
             {!user && (
@@ -38,9 +48,6 @@ export default function Navbar() {
           </ul>
         )}
       </nav>
-      <div className="banner">
-        <Image src="/banner.png" width={966} height={276} />
-      </div>
     </div>
   );
 }
