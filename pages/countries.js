@@ -10,7 +10,7 @@ export default function Guides() {
   useEffect(() => {
     if (authReady) {
       fetch(
-        "/.netlify/functions/users",
+        "/.netlify/functions/members",
         user && {
           headers: {
             Authorization: "Bearer " + user.token.access_token,

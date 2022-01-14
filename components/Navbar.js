@@ -19,21 +19,25 @@ export default function Navbar() {
                 <a>Home</a>
               </Link>
             </li>
-            <li>
-              <Link href="/users">
-                <a>Users</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/countries">
-                <a>Countries</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/lists">
-                <a>Lists</a>
-              </Link>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <Link href="/users">
+                    <a>Users</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/countries">
+                    <a>Countries</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/lists">
+                    <a>Lists</a>
+                  </Link>
+                </li>
+              </>
+            )}
             {!user && (
               <li onClick={login} className="btn">
                 Login/Sign up

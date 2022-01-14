@@ -7,31 +7,27 @@ export default function Guides() {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
 
+  const fetchData = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        // if (!res.ok) {
+        //   login();
+        //   throw Error("You must be logged in to view this content!");
+        // }
+        return res.json();
+      })
+      .then((data) => {
+        setUsers(data);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setUsers(null);
+      });
+  };
+
   useEffect(() => {
     if (authReady) {
-      fetch(
-        "/.netlify/functions/users",
-        user && {
-          headers: {
-            Authorization: "Bearer " + user.token.access_token,
-          },
-        }
-      )
-        .then((res) => {
-          if (!res.ok) {
-            login();
-            throw Error("You must be logged in to view this content!");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setUsers(data);
-          setError(null);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setUsers(null);
-        });
     }
   }, [user, authReady]);
 

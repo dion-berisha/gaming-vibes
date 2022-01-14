@@ -1,5 +1,5 @@
 exports.handler = async (event, context) => {
-  const users = [
+  const members = [
     { title: "Lorem ipsum dolor sit amet consectetur", author: "john" },
     { title: "Lorem ipsum dolor sit amet consectet", author: "mario" },
     { title: "Ultimate Street Fighter", author: "chun-li" },
@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
   if (context.clientContext.user) {
     return {
       statusCode: 200,
-      body: JSON.stringify(users),
+      body: JSON.stringify(members),
     };
   }
 
