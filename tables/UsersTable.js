@@ -1,12 +1,12 @@
 import MaterialTable from "material-table";
 import tableIcons from "./IconProvider";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
-const columns =[
+const columns = [
   { title: "ID", field: "id" },
-  { title: "Full Name", field: "name"},
-  { title: "Username", field: "username"},
-  {title: "Email", field: "email"}
+  { title: "Full Name", field: "name" },
+  { title: "Username", field: "username" },
+  { title: "Email", field: "email" },
 ];
 
 export const UsersTable = () => {
@@ -14,19 +14,20 @@ export const UsersTable = () => {
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
-    .then((data) => data.json())
-    .then((data) => setTableData(data))
-  })
+      .then((data) => data.json())
+      .then((data) => setTableData(data));
+  });
 
   return (
-    <MaterialTable 
-    title="First Table" 
-    icons={tableIcons} 
-    columns={columns} 
-    data={tableData} 
-    options={{
-      exportButton: true,
-      grouping: true, 
-    }}
-  />)
+    <MaterialTable
+      title="Users Table"
+      icons={tableIcons}
+      columns={columns}
+      data={tableData}
+      options={{
+        exportButton: true,
+        grouping: true,
+      }}
+    />
+  );
 };

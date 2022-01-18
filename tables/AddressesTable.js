@@ -20,7 +20,7 @@ export const AddressesTable = () => {
 
   return (
     <MaterialTable
-      title="First Table"
+      title="Addresses Table"
       icons={tableIcons}
       columns={columns}
       data={tableData}
