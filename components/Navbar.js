@@ -11,7 +11,7 @@ export default function Navbar() {
     <div className="container">
       <nav>
         <Image src="/rupee.png" width={50} height={48} />
-        <h1>My App</h1>
+        <h1>Admin Tool</h1>
         {authReady && (
           <ul>
             <li>
@@ -27,13 +27,13 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/countries">
-                    <a>Countries</a>
+                  <Link href="/addresses">
+                    <a>Addresses</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/lists">
-                    <a>Lists</a>
+                  <Link href="/companies">
+                    <a>Companies</a>
                   </Link>
                 </li>
               </>
