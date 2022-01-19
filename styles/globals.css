@@ -52,6 +52,7 @@ nav li.btn:hover {
 }
 
 /* banner */
-.banner img {
+.banner {
+  margin-left: 250px;
   border-radius: 6px;
 }

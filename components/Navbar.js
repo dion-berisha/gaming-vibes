@@ -52,6 +52,9 @@ export default function Navbar() {
           </ul>
         )}
       </nav>
+      <div className="banner">
+        <Image src="/users.png" width={440} height={200} />
+      </div>
     </div>
   );
 }
