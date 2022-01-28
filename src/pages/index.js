@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <div className="banner">
-        <Image src="/users.png" width={440} height={200} />
+        <Image src="/users.png" width={440} height={300} />
       </div>
       <h2>Welcome to our users!</h2>
       <div>

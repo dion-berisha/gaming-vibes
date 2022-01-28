@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 const columns = [
   { title: "ID", field: "id" },
   { title: "Full Name", field: "name" },
-  { title: "Username", field: "username" },
-  { title: "Email", field: "email" },
+  { title: "City", field: "address.city" },
+  { title: "Street", field: "address.street" },
 ];
 
-export const UsersTable = () => {
+export const AddressesTable = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -20,13 +20,14 @@ export const UsersTable = () => {
 
   return (
     <MaterialTable
-      title="Users Table"
+      title="Addresses Table"
       icons={tableIcons}
       columns={columns}
       data={tableData}
       options={{
         exportButton: true,
         grouping: true,
+        paging: false,
       }}
     />
   );

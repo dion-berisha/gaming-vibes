@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/atoms/navbar";
 import "../styles/globals.css";
 import { AuthContextProvider } from "../stores/authContext";
 
