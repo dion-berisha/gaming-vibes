@@ -14,30 +14,26 @@ export const AuthContextProvider = ({ children }) => {
   const [authReady, setAuthReady] = useState(false);
 
   useEffect(() => {
-    netlifyIdentity.on("login", (user) => {
-      setUser(user);
-      netlifyIdentity.close();
-      console.log("login event");
-    });
-
-    netlifyIdentity.on("logout", () => {
-      setUser(null);
-      console.log("logout event");
-    });
-
-    netlifyIdentity.on("init", (user) => {
-      setUser(user);
-      setAuthReady(true);
-      console.log("init event");
-    });
-
-    //init netlify identity connection
-    netlifyIdentity.init();
-
-    return () => {
-      netlifyIdentity.off("login");
-      netlifyIdentity.off("logout");
-    };
+    // netlifyIdentity.on("login", (user) => {
+    //   setUser(user);
+    //   netlifyIdentity.close();
+    //   console.log("login event");
+    // });
+    // netlifyIdentity.on("logout", () => {
+    //   setUser(null);
+    //   console.log("logout event");
+    // });
+    // netlifyIdentity.on("init", (user) => {
+    //   setUser(user);
+    //   setAuthReady(true);
+    //   console.log("init event");
+    // });
+    // //init netlify identity connection
+    // netlifyIdentity.init();
+    // return () => {
+    //   netlifyIdentity.off("login");
+    //   netlifyIdentity.off("logout");
+    // };
   }, []);
 
   const login = () => {

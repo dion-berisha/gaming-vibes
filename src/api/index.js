@@ -1,11 +1,12 @@
 import { END_POINT } from "../helpers";
+import Cookie from "js-cookie";
 
 class Api {
   constructor() {
-    this.getEnvEndpoint = () => END_POINT[Cookies.get("env")];
+    this.getEnvEndpoint = () => END_POINT[0];
   }
 
-  async login({ endpoint, domainModel, username, password }) {
+  async login(endpoint, domainModel, username, password) {
     const response = await fetch(`${this.getEnvEndpoint()}/${endpoint}`, {
       method: "POST",
       headers: {
