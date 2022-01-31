@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import styles from "../styles/Guides.module.css";
-import AuthContext from "../stores/authContext";
-import { UsersTable } from "../tables/UsersTable";
+import styles from "../../styles/Guides.module.css";
+import AuthContext from "./../../stores/authContext";
+import { UsersTable } from "./../../tables/UsersTable";
 
 export default function Guides() {
   const { user, authReady, login } = useContext(AuthContext);

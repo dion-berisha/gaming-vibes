@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import styles from "../styles/Guides.module.css";
-import AuthContext from "../../stores/authContext";
+import styles from "../../styles/Guides.module.css";
+import AuthContext from "./../../stores/authContext";
 import { AddressesTable } from "../../tables/AddressesTable";
 
 export default function Guides() {
