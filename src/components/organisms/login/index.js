@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
 
 export default function Login() {
   const [loggedState, setLoggedState] = useState(null);
-  const { login } = useContext(AuthContext);
+  const { user, authReady, login, logout } = useContext(AuthContext);
 
   const router = useRouter();
 

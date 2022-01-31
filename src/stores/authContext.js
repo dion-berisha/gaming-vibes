@@ -36,11 +36,13 @@ export const AuthContextProvider = ({ children }) => {
     // };
   }, []);
 
-  const login = () => {
+  const login = (val) => {
+    console.log(val)
     // netlifyIdentity.open();
   };
 
-  const logout = () => {
+  const logout = (val) => {
+    console.log(val)
     // netlifyIdentity.logout();
   };
 
