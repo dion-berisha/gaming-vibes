@@ -53,7 +53,7 @@ export default function Login() {
       // alert('You loggedin successfully!');
 
       login(userId);
-      router.push('/users')
+      router.push("/app/users");
     }
   }, [loggedState]);
 
