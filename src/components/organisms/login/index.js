@@ -55,53 +55,58 @@ export default function Login() {
   }, [loggedState]);
 
   return (
-    <div>
-      <Formik
-        initialValues={{
-          username: "",
-          password: "",
-        }}
-        validateOnBlur={false}
-        validateOnChange={false}
-        validationSchema={validationSchema}
-        autoComplete="off"
-        onSubmit={(values) => userLoggin(values)}
-      >
-        {({ values, handleChange, handleBlur, handleSubmit, errors }) => (
-          <form method="POST" onSubmit={handleSubmit}>
-            <h3>Enter user details here:</h3>
-            <div className={styles.formBody}>
-              <div className={styles.itemWrapper}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  name="username"
-                  value={values.username}
-                  className={styles.inputField}
-                  onChange={handleChange("username")}
-                  onBlur={handleBlur}
-                />
-              </div>
-              <div className={styles.itemWrapper}>
-                <input
-                  type="password"
-                  name="password"
-                  value={values.password}
-                  placeholder="Enter your password"
-                  className={styles.inputField}
-                  onChange={handleChange("password")}
-                  onBlur={handleBlur}
-                />
-              </div>
+    <div className={styles.loginPage}>
+      <div className={styles.adminToolDetails}>
+        <h1>ADMIN TOOL</h1>
+      </div>
+      <div className={styles.submissionForm}>
+        <Formik
+          initialValues={{
+            username: "",
+            password: "",
+          }}
+          validateOnBlur={false}
+          validateOnChange={false}
+          validationSchema={validationSchema}
+          autoComplete="off"
+          onSubmit={(values) => userLoggin(values)}
+        >
+          {({ values, handleChange, handleBlur, handleSubmit, errors }) => (
+            <form method="POST" onSubmit={handleSubmit}>
+              <div className={styles.formBody}>
+                <h3>Enter user details here:</h3>
+                <div className={styles.itemWrapper}>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    name="username"
+                    value={values.username}
+                    className={styles.inputField}
+                    onChange={handleChange("username")}
+                    onBlur={handleBlur}
+                  />
+                </div>
+                <div className={styles.itemWrapper}>
+                  <input
+                    type="password"
+                    name="password"
+                    value={values.password}
+                    placeholder="Enter your password"
+                    className={styles.inputField}
+                    onChange={handleChange("password")}
+                    onBlur={handleBlur}
+                  />
+                </div>
 
-              {/* Error Message here, when wrong login credentials */}
-              <div className={styles.itemWrapper}>
-                <button type="submit">Login</button>
+                {/* Error Message here, when wrong login credentials */}
+                <div className={styles.itemWrapper}>
+                  <button type="submit">Login</button>
+                </div>
               </div>
-            </div>
-          </form>
-        )}
-      </Formik>
+            </form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 }

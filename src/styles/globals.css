@@ -9,7 +9,7 @@ body {
   margin: 0 20px;
   font-family: "Quicksand", sans-serif;
   color: #444;
-  background: #f2f2f2;
+  background: linear-gradient(to left, white, rgb(0, 255, 36));
 }
 a {
   color: inherit;
