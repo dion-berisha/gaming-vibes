@@ -52,7 +52,7 @@ export default function Login() {
       const { IdToken, RefreshToken, userId, tenants, role } = loggedState;
       setToken(IdToken, RefreshToken, userId, tenants, role);
       login(userId);
-      router.push('/app/users')
+      router.push("/app/users");
     }
   }, [loggedState]);
 
