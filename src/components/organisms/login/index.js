@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Api from "../../../api";
 import { setToken } from "../../../helpers";
-
+import AuthContext from "./../../../stores/authContext";
 import { useRouter } from "next/router";
 
 import { Formik } from "formik";
@@ -22,6 +22,7 @@ const validationSchema = yup.object().shape({
 
 export default function Login() {
   const [loggedState, setLoggedState] = useState(null);
+  const { login } = useContext(AuthContext);
 
   const router = useRouter();
 
@@ -40,7 +41,6 @@ export default function Login() {
       await logginRequest;
 
     if (logginRequest.userId) {
-      console.log(logginRequest);
       setLoggedState({ IdToken, userId, RefreshToken, tenants, role });
     }
   };
@@ -49,8 +49,11 @@ export default function Login() {
     if (loggedState) {
       const { IdToken, RefreshToken, userId, tenants, role } = loggedState;
       setToken(IdToken, RefreshToken, userId, tenants, role);
+      // console.log('Logged in data');
+      // alert('You loggedin successfully!');
 
-      // router.push('/app')
+      login(userId);
+      router.push('/users')
     }
   }, [loggedState]);
 
