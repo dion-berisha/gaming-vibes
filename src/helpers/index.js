@@ -8,6 +8,8 @@ export const END_POINT = [
   `http://127.0.0.1:3000/local`,
 ];
 
+export const isBrowser = () => typeof window !== 'undefined';
+
 export const setToken = (token, refreshToken, userId, tenants, role) => {
   Cookies.set("token", token, {
     expires: 1 / 24,

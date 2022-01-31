@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
 
 export default function Login() {
   const [loggedState, setLoggedState] = useState(null);
-  const { user, authReady, login, logout } = useContext(AuthContext);
+  const { user, authReady, login, initiateLogin, logout } = useContext(AuthContext);
 
   const router = useRouter();
 
@@ -30,6 +30,8 @@ export default function Login() {
   // Error state, if wrong credentials
 
   const userLoggin = async ({ username, password }) => {
+    initiateLogin();
+
     const logginRequest = await Api.login(
       "signup",
       "initiateAuth",
@@ -49,11 +51,8 @@ export default function Login() {
     if (loggedState) {
       const { IdToken, RefreshToken, userId, tenants, role } = loggedState;
       setToken(IdToken, RefreshToken, userId, tenants, role);
-      // console.log('Logged in data');
-      // alert('You loggedin successfully!');
-
       login(userId);
-      router.push('/users')
+      router.push('/app/users')
     }
   }, [loggedState]);
 
