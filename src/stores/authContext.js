@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 import { useEffect } from "react";
 // import netlifyIdentity from "netlify-identity-widget";
 
-import { getToken, isLoggedIn } from '../helpers';
+import { getToken, isLoggedIn } from "../helpers";
 
 const AuthContext = createContext({
   user: null,
@@ -20,15 +20,16 @@ export const AuthContextProvider = ({ children }) => {
   const loggedIn = isLoggedIn();
 
   useEffect(() => {
+    if (token) {
+      setUser(token);
+      setAuthReady(true);
+    }
 
     // if (token) {
     //   setUser
     // }
-
     // if (loggedIn) {
-
     // }
-
     // Initiate logging off
     // return () => {
     //   netlifyIdentity.off("login");
@@ -36,25 +37,24 @@ export const AuthContextProvider = ({ children }) => {
     // };
   }, []);
 
-
-
-  // We will use, the below function to successfully, 
+  // We will use, the below function to successfully,
   // finish the login process
 
   const login = (val) => {
-    console.log('We are calling the value here', val)
+    console.log("We are calling the value here", val);
     setUser(val);
     setAuthReady(true);
   };
 
   const logout = (val) => {
-    console.log(val)
+    console.log(val);
     setUser(null);
+    setAuthReady(false);
   };
 
   const initiateLogin = () => {
     setAuthReady(true);
-  }
+  };
 
   const context = { user, login, logout, initiateLogin, authReady };
 

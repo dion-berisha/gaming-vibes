@@ -23,6 +23,7 @@
 
   h3 {
     margin-left: 195px;
+    margin-bottom: 0px;
   }
   .itemWrapper {
     display: flex;
@@ -37,6 +38,7 @@
       width: 50%;
     }
     button {
+      background-color: transparent;
       transition-duration: 0.4s;
       margin-left: 235px;
       color: rgb(47, 220, 70);

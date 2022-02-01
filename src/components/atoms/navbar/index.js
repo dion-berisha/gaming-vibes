@@ -9,30 +9,19 @@ export default function Navbar() {
   return (
     <div className="container">
       <nav>
-        <Image src="/rupee.png" width={50} height={48} />
         <h1>Admin Tool</h1>
         {authReady && (
           <ul>
             <li>
-              <Link href="/">
+              <Link href="/ ">
                 <a>Home</a>
               </Link>
             </li>
             {user && (
               <>
                 <li>
-                  <Link href="/users">
+                  <Link href="/app/users">
                     <a>Users</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/addresses">
-                    <a>Addresses</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/companies">
-                    <a>Companies</a>
                   </Link>
                 </li>
               </>
@@ -44,7 +33,6 @@ export default function Navbar() {
             Login/Sign up
           </li>
         )}
-        {user && <li>{user.user_metadata.full_name}</li>}
         {user && (
           <li onClick={logout} className="btn">
             Log out

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import styles from "../../styles/Guides.module.css";
 import AuthContext from "./../../stores/authContext";
 import { UsersTable } from "./../../tables/UsersTable";
+import Navbar from "../../components/atoms/navbar/index.js";
 
 export default function Guides() {
   const { user, authReady, login } = useContext(AuthContext);
@@ -9,7 +10,7 @@ export default function Guides() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log(authReady);  
+    console.log(authReady);
     if (authReady) {
       // fetch(
       //   "/.netlify/functions/members",
@@ -40,14 +41,14 @@ export default function Guides() {
   return (
     <div className={styles.guides}>
       {!authReady && <div>Loading...</div>}
-      <h1>Users Page</h1>
+      <Navbar />
       {error && (
         <div className={styles.error}>
           <p>{error}</p>
         </div>
       )}
 
-      {guides && <UsersTable />}
+      {user && <UsersTable />}
     </div>
   );
 }
