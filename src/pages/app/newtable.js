@@ -10,32 +10,7 @@ export default function Guides() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log(authReady);
-    if (authReady) {
-      // fetch(
-      //   "/.netlify/functions/members",
-      //   user && {
-      //     headers: {
-      //       Authorization: "Bearer " + user.token.access_token,
-      //     },
-      //   }
-      // )
-      //   .then((res) => {
-      //     if (!res.ok) {
-      //       login();
-      //       throw Error("You must be logged in to view this content!");
-      //     }
-      //     return res.json();
-      //   })
-      //   .then((data) => {
-      //     setGuides(data);
-      //     setError(null);
-      //   })
-      //   .catch((err) => {
-      //     setError(err.message);
-      //     setGuides(null);
-      //   });
-    }
+    if (authReady) {}
   }, [user, authReady]);
 
   return (

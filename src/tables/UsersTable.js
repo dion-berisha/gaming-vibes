@@ -154,8 +154,6 @@ export const UsersTable = () => {
 
     const objData = await usersData;
 
-    console.log(objData);
-
     if (objData) {
       const { tenantIds, tenantNames, userDetails } = objData;
       setUserColumns(userDetails);
@@ -245,9 +243,9 @@ export const UsersTable = () => {
                 <StyledTableCell>Toggle Tenants</StyledTableCell>
               </StyledTableRow>
             </TableHead>
-
+ 
             <TableBody>
-              {userColumns.map((user, index) => (
+              {userColumns && userColumns.map((user, index) => (
                 <>
                   <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
                     <StyledTableCell sx={{ maxWidth: 275 }}>
