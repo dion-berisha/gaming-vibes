@@ -24,19 +24,23 @@ export default function Navbar() {
                     <a>Users</a>
                   </Link>
                 </li>
+
+                <li>
+                  <Link href="/app/newtable">
+                    <a>Table</a>
+                  </Link>
+                </li>
               </>
             )}
           </ul>
         )}
-        {user === null && (
-          <li onClick={login} className="btn">
-            Login/Sign up
-          </li>
-        )}
+
         {user && (
-          <li onClick={logout} className="btn">
-            Log out
-          </li>
+          <Link href="/ ">
+            <li onClick={logout} className="btn">
+              Logout
+            </li>
+          </Link>
         )}
       </nav>
     </div>

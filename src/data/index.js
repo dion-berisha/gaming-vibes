@@ -2,7 +2,6 @@ export const userData = [
   {
     userName: "arbias@justt.me",
     displayName: "Arbias Gjoshi",
-    createdOn: "2020-11-28",
     tenants: [
       {
         tenantId: "3f5c0a11-123123-asd12das12-1",
@@ -33,7 +32,7 @@ export const userData = [
         mainIndex: 1,
       },
       {
-        tenantId: "12easd123-123123213-ddvvk1213nc-4",
+        tenantId: "12easd123-123123213-dd1213nc-4",
         name: "Tenant Three",
         description: "Tenant Three Description",
         eventBucketItemThresholdBare: 10,
@@ -51,10 +50,10 @@ export const userData = [
   {
     userName: "dion@justt.me",
     displayName: "Dion Berisha",
-    createdOn: "2020-11-28",
+
     tenants: [
       {
-        tenantId: "8kdhs920sa-1873629-sa2389sadhj-9",
+        tenantId: "8kdhs920sa-1873629-sa239sadhj-9",
         name: "Tenant One",
         description: "Tenant One Description",
         eventBucketItemThresholdBare: 10,
@@ -68,7 +67,7 @@ export const userData = [
         mainIndex: 1,
       },
       {
-        tenantId: "as12das12-123123-asd12das12-3",
+        tenantId: "osid231dha23-123123-sau23gsd-3",
         name: "Tenant Two",
         description: "Tenant Description",
         eventBucketItemThresholdBare: 10,
@@ -82,7 +81,7 @@ export const userData = [
         mainIndex: 1,
       },
       {
-        tenantId: "12easd123-123123213-ddvvk1213nc-4",
+        tenantId: "12ea123-123123213-2ioudsah23-4",
         name: "Tenant Three",
         description: "Tenant Three Description",
         eventBucketItemThresholdBare: 10,
@@ -100,7 +99,7 @@ export const userData = [
   {
     userName: "yann@justt.me",
     displayName: "Yann Senecheau",
-    createdOn: "2020-11-28",
+
     tenants: [
       {
         tenantId: "09sjd123w-987321-opsi231da2-6",
@@ -131,7 +130,7 @@ export const userData = [
         mainIndex: 1,
       },
       {
-        tenantId: "po23uyds56-1928401-dsuoaw09321s-2",
+        tenantId: "po23uyds56-1928401-dsu09321s-2",
         name: "Tenant Three",
         description: "Tenant Three Description",
         eventBucketItemThresholdBare: 10,
@@ -149,10 +148,10 @@ export const userData = [
   {
     userName: "deniz@justt.me",
     displayName: "Deniz Tortoshi",
-    createdOn: "2020-11-28",
+
     tenants: [
       {
-        tenantId: "sad23123-2938753-shiqe12390skj-0",
+        tenantId: "sad23123-2938753-shqe12390skj-0",
         name: "Tenant One",
         description: "Tenant Description",
         eventBucketItemThresholdBare: 10,
@@ -166,7 +165,7 @@ export const userData = [
         mainIndex: 1,
       },
       {
-        tenantId: "os2938dska-12457281-p2ued12o3ij-8",
+        tenantId: "os2938dska-12457281-p2ue2o3ij-8",
         name: "Tenant Two",
         description: "Tenant Two Description",
         eventBucketItemThresholdBare: 10,
@@ -180,7 +179,7 @@ export const userData = [
         mainIndex: 1,
       },
       {
-        tenantId: "2sdh1234-920384712-isi28hsdh12-7",
+        tenantId: "2sdh1234-920384712-isi28hsd12-7",
         name: "Tenant Three",
         description: "Tenant Three Description",
         eventBucketItemThresholdBare: 10,
