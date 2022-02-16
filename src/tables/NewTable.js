@@ -8,87 +8,142 @@ import { getToken } from "../helpers/index";
 export const NewTable = () => {
   const [userColumns, setUserColumns] = useState([]);
   const [tenants, setTenants] = useState([]);
-  const [tenantAccess, setTenantAccess] = useState([]);
+
+  // Table Columns for fields added to the headear of tables
   const [filteredColumns, setFilteredColumns] = useState([]);
-  
-  // Table Columns
   const tableColumns = Object.keys(userData[0]);
   const token = getToken();
 
-  const formatCrudPermissions = (crudData) => {
-    let tenantArray = [];
+  const sampleJson = {
+    created: "",
+    displayName: "",
+    // Tek qekjo, ki me i shtu, edhe filtru/ndryshu
+    // tenantat me crud access
+    tenants: [{}],
+    userId: "",
+    username: "",
+  };
 
+  const tenantAccess = ["1111", "1111", "1111", "0000", "0000"];
+
+  const finalTenantState = [
+    {
+      name: "Justt Business",
+      id: "",
+      crudAccess: {
+        create: false,
+        read: false,
+        update: true,
+        delete: true,
+      },
+    },
+    {
+      name: "Justt",
+      id: "",
+      crudAccess: {
+        create: false,
+        read: false,
+        update: true,
+        delete: true,
+      },
+    },
+    {
+      name: "DemoContent",
+      id: "",
+      crudAccess: {
+        create: false,
+        read: false,
+        update: true,
+        delete: true,
+      },
+    },
+    {
+      name: "Arbias",
+      id: "",
+      crudAccess: {
+        create: false,
+        read: false,
+        update: true,
+        delete: true,
+      },
+    },
+    {
+      name: "Med Watch",
+      id: "",
+      crudAccess: {
+        create: false,
+        read: false,
+        update: true,
+        delete: true,
+      },
+    },
+  ];
+
+  const userDataWithTenantsFormatted = {
+    name: "arbiasgjoshi",
+    created: "",
+    displayName: "Arbias Gjoshi",
+    email: "arbias@justt.me",
+    tenantAccess: finalTenantState,
+  };
+
+  const formatCrudPermissions = (crudData) => {
+    // one crudData, means one users tenantAccess with 0s and 1s
+    let tenantArray = [];
     crudData.map((tenantId, index) => {
-      const splitData = tenantId.split('');
-      let crudArray = []; 
+      const splitData = tenantId.split("");
+      // let crudArray = [];
+
+      let newObject = {};
       splitData.map((value, indx) => {
-        let newObject = {};
         if (indx === 0) {
           newObject = {
-            create: value === '1' ? true : false
-          }
+            create: value === "1" ? true : false,
+          };
         } else if (indx === 1) {
           newObject = {
-            read: value === '1' ? true : false
-          }
+            ...newObject,
+            read: value === "1" ? true : false,
+          };
         } else if (indx === 2) {
           newObject = {
-            update: value === '1' ? true : false
-          }
+            ...newObject,
+            update: value === "1" ? true : false,
+          };
         } else {
           newObject = {
-            delete: value === '1' ? true : false
-          }
+            ...newObject,
+            delete: value === "1" ? true : false,
+          };
         }
-        crudArray.push(newObject);
-      })
+      });
 
-      // console.log(crudArray);
-      tenantArray.push({
-        crud: crudArray
-      }); 
+      tenantArray.push({ ...tenants[index], crudAccess: newObject });
+      newObject = {};
     });
 
-    console.log(tenantArray);
-    // return crudArray;
-  }
+    return tenantArray;
+  };
 
   const formatUserData = (userDetails) => {
-    // Nuk di qka ke menu me bo preAccess edhe Access
-    // amo qka po shoh eshte ni kopje me funksionin ma poshte
-    // qe seshte kane e nevojshme. 
-
-    // let preAccess = [];
-    // let Access = [];
-
-    // qka u dashte me bo qetu eshte me 'mutate' te dhanat e qdo useri me tenantat e rujtun ma poshte qe me mujt me convert masnej ne final draft qe me i rujt rows
-
-    // E bon deep copy qetu edhe qesaj user data ja shton tenants me crud
-    // po para se me ardhe te qajo pike, ki me i format Cruds
+    const formattedArray = [];
     const userData = [...userDetails];
-    // console.log(userData[0]);
 
+    userData.map((existingUser, idx) => {
+      let finalUserData = {};
 
-    userDetails.map((user, index) => {
-      if (index === 100) {
-        const tenantFormated = formatCrudPermissions(user.tenantAccess);
-      // console.log(tenantFormated);  
-      }
+      finalUserData = {
+        ...existingUser,
+        tenantAccess: formatCrudPermissions(existingUser.tenantAccess),
+      };
+
+      formattedArray.push(finalUserData);
     });
 
-    // console.log(preAccess);
-
-    // preAccess.map((access) => {
-    //   const accessArray = {
-    //     crud: access.id,
-    //   };
-    //   Access.push(accessArray);
-    // });
+    setUserColumns(formattedArray);
   };
 
   const filterAndSetTenants = (tenantIds, tenantNames) => {
-    // set tenants with tenantIds, and merge with tenantList
-
     let preTenants = [];
     let allTenants = [];
 
@@ -123,25 +178,24 @@ export const NewTable = () => {
 
     if (objData) {
       const { tenantIds, tenantNames, userDetails } = objData;
-      // setUserColumns(userDetails);
       filterAndSetTenants(tenantIds, tenantNames);
       formatUserData(userDetails);
+      // setUserColumns(userDetails);
     }
   };
 
   const populateColumns = () => {
-    let groupedData = [];
-    tableColumns.map((item) => {
-      if (item !== "tenants") {
-        const addingItem = {
-          title: item,
-          field: item,
-        };
-        groupedData.push(addingItem);
-      }
-    });
-
-    setFilteredColumns(groupedData);
+    // let groupedData = [];
+    // tableColumns.map((item) => {
+    //   if (item !== "tenants") {
+    //     const addingItem = {
+    //       title: item,
+    //       field: item,
+    //     };
+    //     groupedData.push(addingItem);
+    //   }
+    // });
+    // setFilteredColumns(groupedData);
   };
 
   useEffect(() => {
@@ -152,7 +206,12 @@ export const NewTable = () => {
 
   return (
     <div>
-      <DataGrid columns={tableColumns} />
+      <DataGrid
+        columns={tableColumns}
+        rowHeight={38}
+        rows={userColumns}
+        getRowId={(e) => e.userId}
+      />
     </div>
   );
 };
