@@ -9,90 +9,15 @@ export const NewTable = () => {
   const [userColumns, setUserColumns] = useState([]);
   const [tenants, setTenants] = useState([]);
 
-  // Table Columns for fields added to the headear of tables
   const [filteredColumns, setFilteredColumns] = useState([]);
   const tableColumns = Object.keys(userData[0]);
   const token = getToken();
-
-  const sampleJson = {
-    created: "",
-    displayName: "",
-    // Tek qekjo, ki me i shtu, edhe filtru/ndryshu
-    // tenantat me crud access
-    tenants: [{}],
-    userId: "",
-    username: "",
-  };
-
-  const tenantAccess = ["1111", "1111", "1111", "0000", "0000"];
-
-  const finalTenantState = [
-    {
-      name: "Justt Business",
-      id: "",
-      crudAccess: {
-        create: false,
-        read: false,
-        update: true,
-        delete: true,
-      },
-    },
-    {
-      name: "Justt",
-      id: "",
-      crudAccess: {
-        create: false,
-        read: false,
-        update: true,
-        delete: true,
-      },
-    },
-    {
-      name: "DemoContent",
-      id: "",
-      crudAccess: {
-        create: false,
-        read: false,
-        update: true,
-        delete: true,
-      },
-    },
-    {
-      name: "Arbias",
-      id: "",
-      crudAccess: {
-        create: false,
-        read: false,
-        update: true,
-        delete: true,
-      },
-    },
-    {
-      name: "Med Watch",
-      id: "",
-      crudAccess: {
-        create: false,
-        read: false,
-        update: true,
-        delete: true,
-      },
-    },
-  ];
-
-  const userDataWithTenantsFormatted = {
-    name: "arbiasgjoshi",
-    created: "",
-    displayName: "Arbias Gjoshi",
-    email: "arbias@justt.me",
-    tenantAccess: finalTenantState,
-  };
 
   const formatCrudPermissions = (crudData) => {
     // one crudData, means one users tenantAccess with 0s and 1s
     let tenantArray = [];
     crudData.map((tenantId, index) => {
       const splitData = tenantId.split("");
-      // let crudArray = [];
 
       let newObject = {};
       splitData.map((value, indx) => {
@@ -185,24 +110,28 @@ export const NewTable = () => {
   };
 
   const populateColumns = () => {
-    // let groupedData = [];
-    // tableColumns.map((item) => {
-    //   if (item !== "tenants") {
-    //     const addingItem = {
-    //       title: item,
-    //       field: item,
-    //     };
-    //     groupedData.push(addingItem);
-    //   }
-    // });
-    // setFilteredColumns(groupedData);
+    let groupedData = [];
+    tableColumns.map((item) => {
+      if (item !== "tenants") {
+        const addingItem = {
+          title: item,
+          field: item,
+        };
+        groupedData.push(addingItem);
+      }
+    });
+    setFilteredColumns(groupedData);
   };
-
+  console.log(userColumns);
   useEffect(() => {
     populateColumns();
 
     UserData("");
   }, []);
+
+  <form onsubmit="console.log('You clicked submit.'); return false">
+    <button type="submit">Submit</button>
+  </form>;
 
   return (
     <div>
